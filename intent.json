@@ -1,0 +1,73 @@
+{
+    "intents": [
+        {
+            "tag": "greeting",
+            "patterns": ["hello", "hi", "hey", "good morning", "good evening", "yo", "what's up"],
+            "responses": [
+                "Hello!", "Hi there!", "Hey!", "Yo! What's up?", "Greetings, human!",
+                "Nice to see you!", "Howdy, partner!", "Hey there! Hope you're having a great day!"
+            ]
+        },
+        {
+            "tag": "goodbye",
+            "patterns": ["bye", "goodbye", "see you", "take care", "adios", "later"],
+            "responses": [
+                "Goodbye!", "See you soon!", "Take care!", "Adios, amigo!", "Bye! Don't miss me too much!",
+                "Catch you later!", "Hope to see you again!", "Stay safe!"
+            ]
+        },
+        {
+            "tag": "thanks",
+            "patterns": ["thanks", "thank you", "appreciate it", "thx", "grateful"],
+            "responses": [
+                "You're welcome!", "No problem!", "Glad to help!", "Anytime, buddy!", "That's what I'm here for!",
+                "You're always welcome!", "Happy to assist!", "No worries, enjoy!"
+            ]
+        },
+        {
+            "tag": "weather",
+            "patterns": ["what's the weather like?", "weather update", "is it raining?", "how's the weather today?", "do I need an umbrella?"],
+            "responses": [
+                "I can't check the weather, but I hope it's sunny! 🌞", "Try looking outside or asking Google!",
+                "Rain or shine, you're still awesome!", "No idea, but if you hear thunder, maybe stay indoors? ⛈️",
+                "It might be raining, it might be sunny... but you're always cool!", "Ask me again, and maybe I'll guess right this time! 😆",
+                "I wish I could look out the window for you!", "Whatever the weather, stay awesome!"
+            ]
+        },
+        {
+            "tag": "joke",
+            "patterns": ["tell me a joke", "make me laugh", "funny joke", "got any jokes?"],
+            "responses": [
+                "Why don't skeletons fight each other? Because they don't have the guts!",
+                "Why did the scarecrow win an award? Because he was outstanding in his field!",
+                "I told my suitcase that there will be no vacations this year. Now I'm dealing with emotional baggage.",
+                "Parallel lines have so much in common. It’s a shame they’ll never meet.",
+                "Why do cows have hooves instead of feet? Because they lactose!",
+                "Did you hear about the claustrophobic astronaut? He just needed a little space!",
+                "I asked my dog what’s two minus two. He said nothing.", 
+                "I would tell you a joke about time travel, but you didn't like it."
+            ]
+        },
+        {
+            "tag": "unknown",
+            "patterns":[],
+            "responses":[
+                "I'm not sure I understand. Can you rephrase that?",
+                "Hmm... I don’t have a response for that yet. Try asking me something else!",
+                "I'm still learning! Maybe ask me about the weather or a joke?",
+                "I didn't get that. Could you try again?",
+                "That’s a great question! But I don't know the answer… yet. 🤔",
+                "Oops! My circuits didn't process that. Try again?",
+                "Not sure what you mean, but I'm always happy to chat!",
+                "I wish I had a witty response, but I don’t understand that yet. Maybe someday! 🤖",
+                "Hmm, that's a tricky one! Maybe ask me something else?",
+                "I'm still learning new things every day! Can you try asking me differently?",
+                "You got me there! I'm not smart enough to answer that yet.",
+                "Well, that's something I need to learn! Meanwhile, ask me about the weather or a joke!",
+                "I have no idea what you're saying, but it sounds interesting! 😄",
+                "My AI brain just short-circuited trying to understand that. Can you simplify it?",
+                "That's outside my knowledge zone, but I appreciate the challenge!"
+            ]
+        }
+    ]
+}
