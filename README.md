@@ -33,7 +33,33 @@ To run the chatbot, follow these steps:
     ```bash
     python chatbot.py
     ```
+    ## Customizing the Rules
 
+    You can customize the rules by editing the `intent.json` file. Each rule should have tags, patterns, responses, and context. For example:
+
+    ```json
+    {
+        "rules": [
+            {
+                "tags": "greeting",
+                "patterns": ["hello", "hi", "hey"],
+                "responses": ["Hi there! How can I help you today?", "Hello! What can I do for you?"],
+                "context": ""
+            },
+            {
+                "tags": "farewell",
+                "patterns": ["bye", "goodbye", "see you"],
+                "responses": ["Goodbye! Have a great day!", "See you later!"],
+                "context": ""
+            }
+        ]
+    }
+    ```
+
+    - **tags**: A label to categorize the rule.
+    - **patterns**: A list of phrases that the chatbot will look for in the user input.
+    - **responses**: A list of responses that the chatbot can use when a pattern is matched.
+    - **context**: Additional information that can be used to provide more relevant responses based on the conversation history.
 You can customize the rules by editing the `intent.json` file. Each rule should have tags, patterns, and responses. For example:
 ```json
 {
