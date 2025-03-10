@@ -6,12 +6,37 @@ import re
 def Load_intent(filenm = "intent.json"):
     try:
         with open(filenm, 'r', encoding='utf-8') as file:
-            # Load the intent file
-            intents = json.load(file)
+            # Load the intent file and converting it into dictionary
+            intent_file = json.load(file)
         print("Bot is ready")
-        #For accessing the data from file we use data.get() method
-        return data.get('intents',[]) #If the keyword is not found then it will return empty list
+        #For accessing the data from file we use ".get()" method
+        return intent_file.get('intents',[]) #If the intents keyword is not found then it will return empty list
     except Exception as e:
-        print("Something doesn't seem right 🫤")
+        print(f"Something doesn't seem right 🫤 {e}")
         return [] #If the file is not found then it will return empty list, prevents crashing of program
     
+def get_response(user_input):
+    user_input = user_input.lower() #Step:1 Convert the user input to lower case for uniformity
+    match_scores = {} #Step:2 Prepare dictionary for storing the matched scores of each intent
+    intents = Load_intent() #Step:3 Load the intents from the json file
+    #Step:4 Loop through the intents
+    for intent in intents:
+        # Count how many patterns match the user input for each intent
+        match_count = sum(
+            1 for pattern in intent["patterns"]
+            if re.search(r'\b' + re.escape(pattern.lower()) + r'\b', user_input)
+        )
+
+        # If there are matches, store the count in match_scores with the tag as the key
+        if match_count > 0:
+            match_scores[intent["tag"]] = match_count
+
+        if not match_scores:
+        # Directly find 'unknown' tag responses here without a separate function
+            unknown_responses = next(intent["responses"] for intent in intents if intent["tag"] == "unknown")
+            return random.choice(unknown_responses)
+    
+    best_match = max(match_scores, key=match_scores.get)  # Get the intent with most matches
+    best_responses = next(intent["responses"] for intent in intents if intent["tag"] == best_match)
+    
+    return random.choice(best_responses)
