@@ -39,4 +39,13 @@ def get_response(user_input):
     best_match = max(match_scores, key=match_scores.get)  # Get the intent with most matches
     best_responses = next(intent["responses"] for intent in intents if intent["tag"] == best_match)
     
-    return random.choice(best_responses)
+    return random.choice(best_responses), best_match
+# Main loop
+# The chatbot will keep running until the user types anything that fully or partially matches the tag goodbye
+while True:
+    user_input = input("You: ")
+    response, detected_tag = get_response(user_input)  # Get the response and the detected tag
+    print("Bot:", response)
+    
+    if detected_tag == "goodbye":  # If the detected tag is "goodbye", break the loop
+        break
