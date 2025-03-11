@@ -37,6 +37,12 @@ def get_response(user_input):
     
     best_match = max(match_scores, key=match_scores.get)  # Get the intent with most matches
     best_responses = next(intent["responses"] for intent in intents if intent["tag"] == best_match)
+
+    # Check if the detected tag is 'goodbye' and return a random goodbye response before exiting
+    if best_match == "goodbye":
+        goodbye_response = random.choice(best_responses)
+        print("Bot:", goodbye_response)
+        exit()  # Terminate the program after displaying the random goodbye message
     
     return random.choice(best_responses)
 # Main loop
@@ -45,6 +51,5 @@ while True:
     user_input = input("You: ")
     response = get_response(user_input)  # Get the response and the detected tag
     print("Bot:", response)
-    
-    if detected_tag == "goodbye":  # If the detected tag is "goodbye", break the loop
-        break
+    # We will not write the break statment as the logical part will already check
+    # If the chat match the tag "goodbye" and if it does then it will terminate itself
