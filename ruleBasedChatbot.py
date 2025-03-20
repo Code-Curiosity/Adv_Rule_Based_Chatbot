@@ -23,7 +23,8 @@ def get_response(user_input):
         # Count how many patterns match the user input for each intent
         match_count = sum(
             1 for pattern in intent["patterns"]
-            if re.search(r'\b' + re.escape(pattern.lower()) + r'\b', user_input)
+            #if re.search(r'\b' + re.escape(pattern.lower()) + r'\b', user_input)
+            if pattern.lower() in user_input  # Check if pattern is a substring of the user input
         )
 
         # If there are matches, store the count in match_scores with the tag as the key
