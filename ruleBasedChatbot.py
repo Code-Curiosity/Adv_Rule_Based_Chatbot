@@ -15,6 +15,25 @@ def Load_intent(filenm = "intent.json"):
         print(f"Something doesn't seem right 🫤 {e}")
         return [] #If the file is not found then it will return empty list, prevents crashing of program
 intents = Load_intent() #Step:3 Load the intents from the json file
+# Improved pattern matching logic
+def is_similar(user_input, pattern):
+    # Convert the pattern and user input to lowercase and split them into words
+    user_words = set(user_input.split())
+    pattern_words = set(pattern.split())
+    
+    # Calculate overlap between user words and pattern words
+    overlap = user_words.intersection(pattern_words)
+    
+    # If there's at least one common word, consider it a match
+    if overlap:
+        return True
+    
+    # Check if pattern is a substring of user input or vice versa
+    if pattern in user_input or user_input in pattern:
+        return True
+
+    # If nothing matches, return False
+    return False
 def get_response(user_input):
     user_input = user_input.lower() #Step:1 Convert the user input to lower case for uniformity
     match_scores = {} #Step:2 Prepare dictionary for storing the matched scores of each intent
