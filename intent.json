@@ -45,10 +45,14 @@
                 "weather": ["forecast", "climate", "conditions", "temperature", "rain", "sunshine", "heat", "cold"]
             },
             "responses": [
-                "I can't check the weather, but I hope it's sunny! 🌞", "Try looking outside or asking Google!",
-                "Rain or shine, you're still awesome!", "No idea, but if you hear thunder, maybe stay indoors? ⛈️",
-                "It might be raining, it might be sunny... but you're always cool!", "Ask me again, and maybe I'll guess right this time! 😆",
-                "I wish I could look out the window for you!", "Whatever the weather, stay awesome!"
+                "I can't check the weather, but I hope it's sunny! 🌞",
+                 "Try looking outside or asking Google!",
+                "Rain or shine, you're still awesome!", 
+                "No idea, but if you hear thunder, maybe stay indoors? ⛈️",
+                "It might be raining, it might be sunny... but you're always cool!", 
+                "Ask me again, and maybe I'll guess right this time! 😆",
+                "I wish I could look out the window for you!", 
+                "Whatever the weather, stay awesome!"
             ]
         },
         {
