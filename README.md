@@ -1,43 +1,103 @@
-# Python Rule-Based ChatBot
+# Adv\_Rule\_Based\_Chatbot
 
-This repository contains a simple rule-based chatbot implemented in Python. The chatbot uses predefined rules to generate responses based on user inputs.
+A Python-based advanced rule-based chatbot that uses improved intent matching, context handling, scoring systems, and user input correction — all without relying on external libraries. Perfect for learning and enhancing chatbot development with pure Python.
 
-## How It Works
+## 🚀 Features
 
-1. **Input Processing**: The chatbot takes user input and processes it to identify keywords or phrases.
-2. **Rule Matching**: The processed input is matched against a set of predefined rules. Each rule consists of patterns and corresponding responses. The bot can understand queries that partially match the user input.
-3. **Scoring**: For partial or multiple tag matches, the chatbot assigns scores to each potential match based on relevance using a scoring system.
-4. **Response Generation**: The chatbot selects the response with the highest score. If no match is found, a random response from the "unknown" tag with predefined responses is provided.
-5. **Output**: The generated response is displayed to the user.
+1. **Improved Intent Matching:**
 
-## Example
+   - Enhanced pattern matching with synonyms handling and better scoring mechanisms.
+   - Recognizes phrases with similar meanings, providing more accurate responses.
 
-Here is a simple example of how the chatbot works:
+2. **Context Handling:**
 
-1. User Input: "Hello"
-2. Rule Matching: The input matches the rule for greeting.
-3. Response Generation: The chatbot responds with "Hi there! How can I help you today?"
+   - Remembers previous interactions to maintain context throughout the conversation.
+   - Provides appropriate responses based on conversation history.
 
-## Getting Started
+3. **Enhanced Scoring System:**
 
-To run the chatbot, follow these steps:
+   - Assigns weights to important keywords to improve response accuracy.
+   - Uses a scoring mechanism to select the most relevant tag when multiple tags match.
+
+4. **Handling Multiple Tags:**
+
+   - Handles multiple intents within a single user input.
+   - Provides segmented responses to address all parts of the input.
+
+5. **Improved Response Selection:**
+
+   - Supports various response styles: Casual, Formal, Humorous, etc.
+   - Dynamically selects responses based on user preferences.
+
+6. **User Input Correction:**
+
+   - Detects and corrects minor spelling errors to enhance pattern matching.
+
+7. **Feedback System:**
+
+   - Collects user feedback to improve future interactions.
+
+---
+
+## 📂 File Structure
+
+- `adv_chatbot.py`: The main Python file containing the chatbot logic.
+- `intent.json`: The JSON file containing predefined intents, patterns, and responses.
+- `README.md`: Documentation file (this one).
+
+---
+
+## 🔍 How It Works
+
+1. **User Input Processing:**
+   - Converts user input to lowercase and splits it into words.
+2. **Intent Matching & Scoring:**
+   - Matches user input against predefined patterns using scoring mechanisms.
+3. **Contextual Responses:**
+   - Takes conversation history into account while generating responses.
+4. **Response Generation:**
+   - Chooses the most appropriate response or asks for clarification if needed.
+
+---
+
+## 📌 Example Usage
+
+```
+You: Hello
+Bot: Hi there! How can I help you today?
+
+You: What's the weather like?
+Bot: I'm just a chatbot, but I recommend checking a weather website!
+
+You: Tell me a joke
+Bot: Why did the chicken join a band? Because it had the drumsticks!
+
+You: Another one
+Bot: What do you call a bear with no teeth? A gummy bear!
+```
+
+---
+
+## 💡 Getting Started
 
 1. Clone the repository:
-    ```bash
-    git clone https://github.com/code-curiosity/Python_Rule_Based_ChatBot.git
-    ```
+   ```bash
+   git clone https://github.com/code-curiosity/Adv_Rule_Based_Chatbot.git
+   ```
 2. Navigate to the project directory:
-    ```bash
-    cd Python_Rule_Based_ChatBot
-    ```
-3. Run the chatbot script:
-    ```bash
-    ruleBasedChatbot.py
-    ```
+   ```bash
+   cd Adv_Rule_Based_Chatbot
+   ```
+3. Run the chatbot:
+   ```bash
+   adv_chatbot.py
+   ```
 
-## Customizing the Rules
+---
 
-You can customize the rules by editing the `intent.json` file. Each rule should have tags, patterns, and responses. For example:
+## 🔨 Customizing Intents
+
+Modify the `intent.json` file to add new patterns, responses, and tags:
 
 ```json
 {
@@ -45,23 +105,19 @@ You can customize the rules by editing the `intent.json` file. Each rule should 
         {
             "tag": "greeting",
             "patterns": ["hello", "hi", "hey"],
-            "responses": ["Hi there! How can I help you today?", "Hello! What can I do for you?"]
+            "responses": ["Hello! How can I assist you?", "Hi! What can I do for you today?"]
         },
         {
-            "tag": "farewell",
-            "patterns": ["bye", "goodbye", "see you"],
-            "responses": ["Goodbye! Have a great day!", "See you later!"]
+            "tag": "goodbye",
+            "patterns": ["bye", "goodbye", "see you later"],
+            "responses": ["Goodbye! Have a great day!", "See you next time!"]
         }
     ]
 }
 ```
 
-### Explanation:
-- **tag**: A label to categorize the rule.
-- **patterns**: A list of phrases that the chatbot will look for in the user input.
-- **responses**: A list of responses that the chatbot can use when a pattern is matched.
+---
 
-## Contributing
+## 📢 Contributions
 
-Contributions are welcome! Please feel free to submit a pull request or open an issue if you have any suggestions or improvements.
-
+Contributions are welcome! Feel free to fork the repo and submit a pull request with improvements or suggestions.
