@@ -1,0 +1,45 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Environment variables
+.env
+
+# IDE and editor specific files
+.vscode/
+.idea/
+*.swp
+
+# Logs and temporary files
+*.log
+*.tmp
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# Test results
+coverage/
+
+# Dependency directories
+venv/
+.env/
+
+# PyInstaller output files
+build/
+dist/
+*.spec
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# macOS generated files
+.DS_Store
+
+# Windows generated files
+Thumbs.db
+
+# Avoid uploading sensitive files
+*.pem
+*.key
