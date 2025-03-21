@@ -43,3 +43,5 @@ Thumbs.db
 # Avoid uploading sensitive files
 *.pem
 *.key
+*.crt
+*.env
