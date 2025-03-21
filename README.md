@@ -6,7 +6,7 @@ This repository contains a simple rule-based chatbot implemented in Python. The 
 
 1. **Input Processing**: The chatbot takes user input and processes it to identify keywords or phrases.
 2. **Rule Matching**: The processed input is matched against a set of predefined rules. Each rule consists of patterns and corresponding responses. The bot can understand queries that partially match the user input.
-3. **Scoring**: For partial or multiple tag matches, the chatbot assigns scores to each potential match based on relevance.
+3. **Scoring**: For partial or multiple tag matches, the chatbot assigns scores to each potential match based on relevance using a scoring system.
 4. **Response Generation**: The chatbot selects the response with the highest score. If no match is found, a random response from the "unknown" tag with predefined responses is provided.
 5. **Output**: The generated response is displayed to the user.
 
@@ -32,40 +32,36 @@ To run the chatbot, follow these steps:
     ```
 3. Run the chatbot script:
     ```bash
-    python chatbot.py
-    ```
-    ## Customizing the Rules
-
-    You can customize the rules by editing the `intent.json` file. Each rule should have tags, patterns, responses, For example:
-
-    ```json
-    {
-        "intents": [
-            {
-                "tags": "greeting",
-                "patterns": ["hello", "hi", "hey"],
-                "responses": ["Hi there! How can I help you today?", "Hello! What can I do for you?"],
-            },
-            {
-                "tags": "farewell",
-                "patterns": ["bye", "goodbye", "see you"],
-                "responses": ["Goodbye! Have a great day!", "See you later!"],
-            }
-        ]
-    }
+    ruleBasedChatbot.py
     ```
 
-    - **tags**: A label to categorize the rule.
-    - **patterns**: A list of phrases that the chatbot will look for in the user input.
-    - **responses**: A list of responses that the chatbot can use when a pattern is matched
+## Customizing the Rules
 
 You can customize the rules by editing the `intent.json` file. Each rule should have tags, patterns, and responses. For example:
 
+```json
+{
+    "intents": [
+        {
+            "tag": "greeting",
+            "patterns": ["hello", "hi", "hey"],
+            "responses": ["Hi there! How can I help you today?", "Hello! What can I do for you?"]
+        },
+        {
+            "tag": "farewell",
+            "patterns": ["bye", "goodbye", "see you"],
+            "responses": ["Goodbye! Have a great day!", "See you later!"]
+        }
+    ]
+}
+```
+
+### Explanation:
+- **tag**: A label to categorize the rule.
+- **patterns**: A list of phrases that the chatbot will look for in the user input.
+- **responses**: A list of responses that the chatbot can use when a pattern is matched.
 
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a pull request or open an issue if you have any suggestions or improvements.
 
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
