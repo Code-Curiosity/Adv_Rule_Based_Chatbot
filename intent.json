@@ -2,7 +2,14 @@
     "intents": [
         {
             "tag": "greeting",
-            "patterns": ["hello", "hi", "hey", "good morning", "good evening", "yo", "what's up"],
+            "patterns": ["hello", "hi", "hey", "good morning", "good evening", "yo", "what's up", "greetings", "howdy", "salutations", "hey there", "hiya", "morning", "evening"],
+            "synonyms": {
+                "hello": ["hi", "hey", "hiya", "yo", "hey there"],
+                "good morning": ["morning", "gm", "rise and shine"],
+                "good evening": ["evening", "ge", "night"],
+                "what's up": ["sup", "what's new", "how's it going", "what's happening"],
+                "howdy": ["hello", "hi", "hey"]
+            },
             "responses": [
                 "Hello!", "Hi there!", "Hey!", "Yo! What's up?", "Greetings, human!",
                 "Nice to see you!", "Howdy, partner!", "Hey there! Hope you're having a great day!"
@@ -10,7 +17,11 @@
         },
         {
             "tag": "goodbye",
-            "patterns": ["bye", "goodbye", "see you", "take care", "adios", "later"],
+            "patterns": ["bye", "goodbye", "see you", "take care", "adios", "later", "farewell", "ciao", "see ya", "catch you later", "peace out"],
+            "synonyms": {
+                "goodbye": ["bye", "farewell", "see ya", "adios", "ciao", "peace out, b bye, b-bye"],
+                "take care": ["stay safe", "be safe", "look after yourself"]
+            },
             "responses": [
                 "Goodbye!", "See you soon!", "Take care!", "Adios, amigo!", "Bye! Don't miss me too much!",
                 "Catch you later!", "Hope to see you again!", "Stay safe!"
@@ -18,7 +29,10 @@
         },
         {
             "tag": "thanks",
-            "patterns": ["thanks", "thank you", "appreciate it", "thx", "grateful"],
+            "patterns": ["thanks", "thank you", "appreciate it", "thx", "grateful", "much obliged", "thanks a lot", "thank you very much", "cheers", "many thanks"],
+            "synonyms": {
+                "thanks": ["thank you", "thx", "cheers", "grateful", "appreciate it", "much obliged"]
+            },
             "responses": [
                 "You're welcome!", "No problem!", "Glad to help!", "Anytime, buddy!", "That's what I'm here for!",
                 "You're always welcome!", "Happy to assist!", "No worries, enjoy!"
@@ -26,7 +40,10 @@
         },
         {
             "tag": "weather",
-            "patterns": ["what's the weather like?", "weather update", "is it raining?", "how's the weather today?", "do I need an umbrella?"],
+            "patterns": ["what's the weather like?", "weather update", "is it raining?", "how's the weather today?", "do I need an umbrella?", "current weather", "will it rain today?", "temperature update", "forecast", "is it hot or cold?"],
+            "synonyms": {
+                "weather": ["forecast", "climate", "conditions", "temperature", "rain", "sunshine", "heat", "cold"]
+            },
             "responses": [
                 "I can't check the weather, but I hope it's sunny! 🌞", "Try looking outside or asking Google!",
                 "Rain or shine, you're still awesome!", "No idea, but if you hear thunder, maybe stay indoors? ⛈️",
@@ -36,7 +53,10 @@
         },
         {
             "tag": "joke",
-            "patterns": ["tell me a joke", "make me laugh", "funny joke", "got any jokes?"],
+            "patterns": ["tell me a joke", "make me laugh", "funny joke", "got any jokes?", "entertain me", "say something funny", "humor me"],
+            "synonyms": {
+                "joke": ["funny", "humor", "laugh", "gag", "quip"]
+            },
             "responses": [
                 "Why don't skeletons fight each other? Because they don't have the guts!",
                 "Why did the scarecrow win an award? Because he was outstanding in his field!",
@@ -44,14 +64,14 @@
                 "Parallel lines have so much in common. It’s a shame they’ll never meet.",
                 "Why do cows have hooves instead of feet? Because they lactose!",
                 "Did you hear about the claustrophobic astronaut? He just needed a little space!",
-                "I asked my dog what’s two minus two. He said nothing.", 
+                "I asked my dog what’s two minus two. He said nothing.",
                 "I would tell you a joke about time travel, but you didn't like it."
             ]
         },
         {
             "tag": "unknown",
-            "patterns":[],
-            "responses":[
+            "patterns": [],
+            "responses": [
                 "I'm not sure I understand. Can you rephrase that?",
                 "Hmm... I don’t have a response for that yet. Try asking me something else!",
                 "I'm still learning! Maybe ask me about the weather or a joke?",
