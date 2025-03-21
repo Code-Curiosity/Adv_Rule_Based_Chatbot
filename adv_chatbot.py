@@ -15,8 +15,18 @@ def Load_intent(filenm = "intent.json"):
         print(f"Something doesn't seem right 🫤 {e}")
         return [] #If the file is not found then it will return empty list, prevents crashing of program
 intents = Load_intent() #Step:3 Load the intents from the json file
-# Improved pattern matching logic
-# Weighted Scoring System
+
+# Function to get synonyms for a word
+def get_synonyms(word):
+    for intent in intents:
+        synonyms = intent.get("synonyms", {})
+        for key, values in synonyms.items():
+            if word == key or word in values:
+                return [key] + values  # Return all synonyms including the original word
+    return [word]  # Return the word itself if no synonyms are found
+
+
+# Improved pattern matching logic with synonym checking
 def is_similar(user_input, pattern):
     user_words = set(user_input.split())  # Split user input into words
     pattern_words = set(pattern.split())  # Split pattern into words
@@ -30,10 +40,35 @@ def is_similar(user_input, pattern):
     # Score calculation using overlap count and pattern length
     score = overlap_count / len(pattern_words)
     return score  # Return the score instead of just True/False
+
+# New pattern-matching function with synonym checking
+def match_pattern(user_input, pattern):
+    user_words = user_input.split()
+    pattern_words = pattern.split()
+    
+    # Expand user words and pattern words with synonyms
+    expanded_user_words = set()
+    for word in user_words:
+        expanded_user_words.update(get_synonyms(word))
+
+    expanded_pattern_words = set()
+    for word in pattern_words:
+        expanded_pattern_words.update(get_synonyms(word))
+        
+    overlap = expanded_user_words.intersection(expanded_pattern_words)
+    overlap_count = len(overlap)
+    
+    if overlap_count == 0:
+        return 0  # No match
+
+    score = overlap_count / len(expanded_pattern_words)
+    return score
+# Get response function
 def get_response(user_input):
-    user_input = user_input.lower() #Step:1 Convert the user input to lower case for uniformity
-    match_scores = {} #Step:2 Prepare dictionary for storing the matched scores of each intent
-    #Step:4 Loop through the intents
+    user_input = user_input.lower()  # Convert user input to lower case for uniformity
+    match_scores = {}  # Prepare dictionary for storing the matched scores of each intent
+    
+    # Loop through the intents
     for intent in intents:
         tag = intent["tag"]
         total_score = 0  # Total score for this tag
@@ -50,7 +85,7 @@ def get_response(user_input):
                 total_score += 2  # Lower score for partial match
 
             # 3. Weighted Scoring System (Pattern similarity calculation)
-            similarity_score = is_similar(user_input, pattern_lower)
+            similarity_score = match_pattern(user_input, pattern_lower)
             total_score += similarity_score * 3  # Weight given to similarity match
 
         if total_score > 0:
