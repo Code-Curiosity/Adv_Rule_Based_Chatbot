@@ -90,7 +90,7 @@ Bot: What do you call a bear with no teeth? A gummy bear!
    ```
 3. Run the chatbot:
    ```bash
-   adv_chatbot.py
+   python adv_chatbot.py
    ```
 
 ---
